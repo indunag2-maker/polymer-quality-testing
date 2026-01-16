@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polymer Quality Testing – India</title>
+<style>
+body {font-family: Arial, sans-serif; margin:0; background:#f4f6f8;}
+header {background:#0a3d62; color:white; padding:20px; text-align:center;}
+.container {padding:20px;}
+.icon-grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:20px;}
+.icon {background:white; border-radius:12px; padding:20px; text-align:center; cursor:pointer;
+box-shadow:0 4px 8px rgba(0,0,0,0.1); transition:transform 0.2s;}
+.icon:hover {transform:scale(1.05);}
+.icon img {width:60px;}
+.details {margin-top:30px; background:white; padding:20px; border-radius:12px;
+box-shadow:0 4px 8px rgba(0,0,0,0.1); display:none;}
+footer {text-align:center; padding:15px; background:#0a3d62; color:white;}
+</style>
+<script>
+function showDetails(test){
+const d={
+mfi:`<h2>Melt Flow Index (MFI)</h2>
+<p><b>Polymers:</b> PE, PP</p>
+<p><b>Standard:</b> IS 2530 / ASTM D1238</p>
+<p>Measures mass of polymer flowing through a die in 10 minutes.</p>`,
+
+tensile:`<h2>Tensile Test</h2>
+<p><b>Polymers:</b> PVC, PET, PE, PP</p>
+<p><b>Standard:</b> IS 7016 / ASTM D638</p>
+<p>Specimen stretched until break to measure strength and elongation.</p>`,
+
+impact:`<h2>Impact Test</h2>
+<p><b>Polymers:</b> ABS, PP, PS</p>
+<p><b>Standard:</b> IS 1598 / ASTM D256</p>
+<p>Energy absorbed by a notched specimen under impact.</p>`,
+
+hardness:`<h2>Hardness (Shore)</h2>
+<p><b>Polymers:</b> Rubber, PVC</p>
+<p><b>Standard:</b> IS 1500 / ASTM D2240</p>`,
+
+thermal:`<h2>DSC Analysis</h2>
+<p><b>Polymers:</b> PET, Nylon, PP</p>
+<p><b>Standard:</b> ASTM D3418</p>`,
+
+density:`<h2>Density Test</h2>
+<p><b>Polymers:</b> PE, PP, PVC</p>
+<p><b>Standard:</b> IS 13360 / ASTM D792</p>`
+};
+const box=document.getElementById("details");
+box.innerHTML=d[test];
+box.style.display="block";
+box.scrollIntoView({behavior:"smooth"});
+}
+</script>
+</head>
+<body>
+
+<header>
+<h1>Polymer Quality Testing Methods</h1>
+<p>Commercial Polymers Used in Indian Market</p>
+</header>
+
+<div class="container">
+<h2>Tap a Quality Control Test</h2>
+<div class="icon-grid">
+<div class="icon" onclick="showDetails('mfi')"><img src="https://img.icons8.com/fluency/96/flow-chart.png"><p>MFI</p></div>
+<div class="icon" onclick="showDetails('tensile')"><img src="https://img.icons8.com/fluency/96/weightlift.png"><p>Tensile</p></div>
+<div class="icon" onclick="showDetails('impact')"><img src="https://img.icons8.com/fluency/96/hammer.png"><p>Impact</p></div>
+<div class="icon" onclick="showDetails('hardness')"><img src="https://img.icons8.com/fluency/96/steel.png"><p>Hardness</p></div>
+<div class="icon" onclick="showDetails('thermal')"><img src="https://img.icons8.com/fluency/96/temperature.png"><p>Thermal</p></div>
+<div class="icon" onclick="showDetails('density')"><img src="https://img.icons8.com/fluency/96/test-tube.png"><p>Density</p></div>
+</div>
+
+<div id="details" class="details"></div>
+</div>
+
+<footer>
+<p>Based on BIS & ASTM standards used in India</p>
+</footer>
+
+</body>
+</html>
